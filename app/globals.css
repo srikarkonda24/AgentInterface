@@ -1,0 +1,120 @@
+/* Global CSS for AgentGuard landing page. Defines animation keyframes and
+   utility classes used by components. No blue animations remain after redesign. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reveal on scroll / in-view */
+.reveal-transition {
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero load animations — staggered fade-up for headline, subtext, and buttons */
+@keyframes heroWordIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-word {
+  display: inline-block;
+  opacity: 0;
+  animation: heroWordIn 0.5s ease-out forwards;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade-in {
+  opacity: 0;
+  animation: heroFadeIn 0.5s ease-out forwards;
+}
+
+/* Terminal — blocked line pulse */
+@keyframes blockedPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+}
+
+.blocked-pulse {
+  animation: blockedPulse 0.4s ease-out;
+}
+
+@keyframes cursorBlink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: cursorBlink 1s step-end infinite;
+}
+
+/* Divider draw-in */
+.divider-transition {
+  transition: transform 0.5s ease-out;
+}
+
+/* Connector line between How It Works steps */
+.connector-transition {
+  transition: width 0.5s ease-out;
+}
+
+/* Reduced motion — disable all animations for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-transition,
+  .divider-transition,
+  .connector-transition {
+    transition: none;
+  }
+
+  .reveal-hidden {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-word,
+  .hero-fade-in,
+  .blocked-pulse,
+  .cursor-blink {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
