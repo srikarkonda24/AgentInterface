@@ -1,1 +1,1 @@
-const apiKey = "AKIAIOSFODNN7EXAMPLE"
+const apiKey = "AKIAIOSFODNN7FAKEKEY"
