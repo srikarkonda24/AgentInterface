@@ -1,1 +1,1 @@
-const apiKey = "AKIAIOSFODNN7FAKEKEY"
+const awsKey = "AKIAJSIE27AFJDDDYLQZ"
