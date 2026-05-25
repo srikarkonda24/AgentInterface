@@ -1,6 +1,4 @@
-const apiKey = process.env.OPENAI_API_KEY
-const dbUrl = process.env.DATABASE_URL
+const awsKey = "AKIAJSIE27AFJDDDYLQZ"
+const openaiKey = "sk-abcdefghijklmnopqrstuvwxyz123456789012345678"
+const stripeKey = "sk_live_abcdefghijklmnopqrstuvwx"
 const port = 3000
-function connectToDatabase() {
-  return dbUrl
-}
