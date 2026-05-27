@@ -8,7 +8,11 @@ import { App } from "@octokit/app";
 // The private key uses \n to represent line breaks in the env file.
 const app = new App({
   appId: process.env.GITHUB_APP_ID!,
-  privateKey: process.env.GITHUB_PRIVATE_KEY!.replace(/\\n/g, "\n"),
+  privateKey: (() => {
+    const key = process.env.GITHUB_PRIVATE_KEY!
+    // Handle both literal \n strings and actual newlines
+    return key.includes("\\n") ? key.replace(/\\n/g, "\n") : key
+  })(),
   webhooks: {
     secret: process.env.GITHUB_WEBHOOK_SECRET!,
   },
